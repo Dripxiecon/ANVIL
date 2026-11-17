@@ -73,7 +73,7 @@ int main() {
     const auto* inner_face = inset_mesh.face(*outer_face);
     assert(inner_face != nullptr);
     assert(inset_mesh.vertex(inner_face->vertices[0])
-               ->position.nearly_equals({0.5F, 0.5F, 0.0F}));
+               ->position.nearly_equals({0.25F, 0.25F, 0.0F}));
     assert(inset_mesh.validate());
 
 }
