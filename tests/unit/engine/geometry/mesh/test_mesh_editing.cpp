@@ -1,6 +1,7 @@
 #include "../../../../../engine/geometry/mesh/mesh_data.hpp"
 
 #include <cassert>
+#include <vector>
 
 using anvil::geometry::MeshData;
 using anvil::math::Vector3;
