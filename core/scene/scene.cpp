@@ -13,7 +13,7 @@ ObjectId Scene::create_object(std::string name) {
     }
 
     const ObjectId id = next_object_id_++;
-    objects_.try_emplace(id, id, std::move(name));
+    objects_.emplace(id, SceneObject{id, std::move(name)});
     return id;
 }
 
@@ -85,7 +85,7 @@ CollectionId Scene::create_collection(std::string name) {
     }
 
     const CollectionId id = next_collection_id_++;
-    collections_.try_emplace(id, id, std::move(name));
+    collections_.emplace(id, Collection{id, std::move(name)});
     return id;
 }
 
