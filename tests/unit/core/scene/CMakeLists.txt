@@ -10,5 +10,9 @@ add_executable(
 )
 
 target_compile_features(test_scene PRIVATE cxx_std_20)
-target_compile_options(test_scene PRIVATE -Wall -Wextra -Wpedantic)
+if(MSVC)
+    target_compile_options(test_scene PRIVATE /W4 /permissive-)
+else()
+    target_compile_options(test_scene PRIVATE -Wall -Wextra -Wpedantic)
+endif()
 add_test(NAME test_scene COMMAND test_scene)
