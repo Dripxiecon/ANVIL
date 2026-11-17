@@ -7,6 +7,9 @@ add_executable(
     test_mesh_data
     test_mesh_data.cpp
     ../../../../../engine/geometry/mesh/mesh_data.cpp
+    ../../../../../engine/geometry/mesh/operations/edge_split.cpp
+    ../../../../../engine/geometry/mesh/operations/face_extrude.cpp
+    ../../../../../engine/geometry/mesh/operations/face_inset.cpp
 )
 
 target_compile_features(test_mesh_data PRIVATE cxx_std_20)
@@ -17,6 +20,9 @@ add_executable(
     test_mesh_editing
     test_mesh_editing.cpp
     ../../../../../engine/geometry/mesh/mesh_data.cpp
+    ../../../../../engine/geometry/mesh/operations/edge_split.cpp
+    ../../../../../engine/geometry/mesh/operations/face_extrude.cpp
+    ../../../../../engine/geometry/mesh/operations/face_inset.cpp
 )
 
 target_compile_features(test_mesh_editing PRIVATE cxx_std_20)
