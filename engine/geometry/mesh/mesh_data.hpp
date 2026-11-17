@@ -22,6 +22,8 @@ public:
         const math::Vector3& position
     );
     [[nodiscard]] bool extrude_face(FaceId id, const math::Vector3& offset);
+    // factor is the fraction each boundary vertex moves toward the face centroid.
+    [[nodiscard]] bool inset_face(FaceId id, float factor);
 
     [[nodiscard]] bool set_vertex_position(VertexId id, const math::Vector3& position) noexcept;
 
