@@ -21,6 +21,7 @@ public:
         EdgeId id,
         const math::Vector3& position
     );
+    [[nodiscard]] bool extrude_face(FaceId id, const math::Vector3& offset);
 
     [[nodiscard]] bool set_vertex_position(VertexId id, const math::Vector3& position) noexcept;
 
