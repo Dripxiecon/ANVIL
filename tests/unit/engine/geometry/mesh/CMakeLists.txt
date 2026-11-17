@@ -12,3 +12,13 @@ add_executable(
 target_compile_features(test_mesh_data PRIVATE cxx_std_20)
 target_compile_options(test_mesh_data PRIVATE -Wall -Wextra -Wpedantic)
 add_test(NAME test_mesh_data COMMAND test_mesh_data)
+
+add_executable(
+    test_mesh_editing
+    test_mesh_editing.cpp
+    ../../../../../engine/geometry/mesh/mesh_data.cpp
+)
+
+target_compile_features(test_mesh_editing PRIVATE cxx_std_20)
+target_compile_options(test_mesh_editing PRIVATE -Wall -Wextra -Wpedantic)
+add_test(NAME test_mesh_editing COMMAND test_mesh_editing)
