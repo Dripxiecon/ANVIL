@@ -17,6 +17,10 @@ public:
     [[nodiscard]] std::optional<VertexId> add_vertex(const math::Vector3& position);
     [[nodiscard]] std::optional<EdgeId> add_edge(VertexId first, VertexId second);
     [[nodiscard]] std::optional<FaceId> add_face(std::vector<VertexId> vertices);
+    [[nodiscard]] std::optional<VertexId> split_edge(
+        EdgeId id,
+        const math::Vector3& position
+    );
 
     [[nodiscard]] bool set_vertex_position(VertexId id, const math::Vector3& position) noexcept;
 
