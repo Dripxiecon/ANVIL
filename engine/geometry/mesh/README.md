@@ -10,7 +10,7 @@ This module stores the basic topology of a polygon mesh.
 
 IDs are not array offsets. Adding more elements or allowing the vectors to reallocate does not change an existing element's ID. IDs are not reused after `clear()`, so a stale handle cannot silently point to a newly-created element in the same MeshData instance.
 
-The current implementation rejects invalid references and duplicate vertex IDs in a face. It does not yet guarantee manifold topology, automatically create boundary edges when a face is added, or support deletion/compaction. Those operations need explicit topology and handle-invalidation rules before they are introduced.
+The current implementation rejects invalid references and duplicate vertex IDs in a face. It supports edge splitting, polygon face extrusion, and a first centroid-based inset operation. Extrusion translates a face along a caller-provided offset; inset moves each boundary vertex toward the face centroid by a fraction between 0 and 1. This inset is intentionally a simple proportional inset, not yet a constant-distance offset suitable for every concave or non-planar polygon.\n\nThe mesh does not yet guarantee manifold topology, automatically create boundary edges when a face is added, or support deletion/compaction. Editing operations currently assume valid input topology and are not yet fully transactional if memory allocation throws. Those guarantees need explicit topology and rollback rules before more destructive editing operations are added.
 
 ## Tests
 
