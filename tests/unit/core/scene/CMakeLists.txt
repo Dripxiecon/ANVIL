@@ -6,7 +6,7 @@ enable_testing()
 add_executable(
     test_scene
     test_scene.cpp
-    ../../../core/scene/scene.cpp
+    ../../../../core/scene/scene.cpp
 )
 
 target_compile_features(test_scene PRIVATE cxx_std_20)
