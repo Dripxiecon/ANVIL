@@ -19,5 +19,6 @@ A C++20 compiler and CMake 3.22 or newer are required.
 - `test_vector3`: arithmetic, dot product, cross product and normalization, including the zero vector.
 - `test_quaternion`: axis-angle construction and vector rotation.
 - `test_transform`: point transformation and inverse transformation with translation, rotation and non-uniform scale.
+- `test_matrix4`: column-major matrix layout, transform composition and point/direction conversion.
 
 The tests use assertions and return a non-zero exit code if a check fails. They have not yet been run in CI or on the target Android device.
