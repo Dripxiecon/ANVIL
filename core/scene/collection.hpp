@@ -3,6 +3,7 @@
 #include "object_id.hpp"
 
 #include <string>
+#include <utility>
 #include <unordered_set>
 
 namespace anvil::scene {
