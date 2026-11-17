@@ -4,13 +4,18 @@
 
 namespace anvil::geometry {
 
-using VertexIndex = std::uint32_t;
-using EdgeIndex = std::uint32_t;
-using FaceIndex = std::uint32_t;
+using VertexId = std::uint64_t;
+using EdgeId = std::uint64_t;
+using FaceId = std::uint64_t;
+
+inline constexpr VertexId invalid_vertex_id = 0;
+inline constexpr EdgeId invalid_edge_id = 0;
+inline constexpr FaceId invalid_face_id = 0;
 
 struct Edge {
-    VertexIndex first{0};
-    VertexIndex second{0};
+    EdgeId id{invalid_edge_id};
+    VertexId first{invalid_vertex_id};
+    VertexId second{invalid_vertex_id};
 };
 
 } // namespace anvil::geometry
