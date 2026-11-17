@@ -85,13 +85,16 @@ std::optional<VertexId> MeshData::split_edge(
     EdgeId id,
     const math::Vector3& position
 ) {
-    const auto edge_slot = edge_slots_.find(id);
-    if (edge_slot == edge_slots_.end() || next_vertex_id_ == invalid_vertex_id
+    const auto edge_lookup = edge_slots_.find(id);
+    if (edge_lookup == edge_slots_.end() || next_vertex_id_ == invalid_vertex_id
         || next_edge_id_ == invalid_edge_id) {
         return std::nullopt;
     }
 
-    const Edge original = edges_[edge_slot->second];
+    // Store the slot, not the unordered-map iterator: adding the second edge
+    // can rehash edge_slots_ and invalidate iterators.
+    const std::size_t original_slot = edge_lookup->second;
+    const Edge original = edges_[original_slot];
     const auto new_vertex = add_vertex(position);
     if (!new_vertex) {
         return std::nullopt;
@@ -104,7 +107,7 @@ std::optional<VertexId> MeshData::split_edge(
 
     // Keep the original edge ID for its first half. Every face that used the
     // original boundary segment receives the new vertex in the matching slot.
-    edges_[edge_slot->second].second = *new_vertex;
+    edges_[original_slot].second = *new_vertex;
 
     for (Face& item : faces_) {
         std::vector<VertexId> updated;
