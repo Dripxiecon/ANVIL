@@ -3,6 +3,7 @@
 #include "quaternion.hpp"
 
 #include <array>
+#include <cstddef>
 #include <cmath>
 
 namespace anvil::math {
