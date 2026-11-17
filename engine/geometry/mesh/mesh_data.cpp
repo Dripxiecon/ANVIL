@@ -99,14 +99,6 @@ std::optional<VertexId> MeshData::split_edge(
 
     const auto new_edge = add_edge(*new_vertex, original.second);
     if (!new_edge) {
-        const auto vertex_slot = vertex_slots_.find(*new_vertex);
-        if (vertex_slot != vertex_slots_.end()) {
-            vertices_.erase(vertices_.begin() + static_cast<std::ptrdiff_t>(vertex_slot->second));
-            vertex_slots_.erase(vertex_slot);
-            for (std::size_t index = 0; index < vertices_.size(); ++index) {
-                vertex_slots_[vertices_[index].id] = index;
-            }
-        }
         return std::nullopt;
     }
 
